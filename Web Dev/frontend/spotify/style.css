@@ -1,0 +1,401 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    margin:0px;
+    padding:0px;
+    overflow:hidden;
+    background-color:black;
+    color:white;
+}
+
+.main {
+    display:flex;
+    height:100vh;
+}
+
+.nav {
+    position:sticky;
+    width:1211px;
+    height:50px;
+    display:flex;
+    margin:-8px;
+    padding:8px 8px;
+}
+
+.sidebar {
+    background-color:#141414;
+    position:absolute;
+    width:350px;
+    height:100%;
+    top:3.8rem;
+    border-radius:10px;
+    gap:10px;
+    margin-right:10px;
+}
+
+.content {
+    background-color:rgba(128, 128, 128, 0.3);
+    position:absolute;
+    left:360px;
+    top:3.8rem;
+    flex:1;
+    overflow:scroll;
+    width:1120px;
+    height:100%;
+    border-radius:10px;
+    padding: 0px 20px
+}
+
+.player {
+    display:flex;
+    background-color:black;
+    position:fixed;
+    bottom:1px;
+    width:100%;
+    height:72px;
+    padding: 8px;
+}
+
+/* side bar internal part*/
+
+.library {
+    font-size:16px;
+    margin:12px 12px 25px 12px ;
+    padding:16px 16px 8px 
+}
+
+#library {
+    display:flex;
+    height:35px;
+    width:100%;
+    justify-content:space-between;
+    font-weight:600
+}
+
+#library > button {
+    border-radius:1.5em;
+    background-color: #1f1f1f;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    padding:8px 16px;
+    border:none;
+}
+
+#library > button:hover {
+    background-color:#2a2a2a;
+}
+
+.playlist, .podcast {
+    margin:25px 9px;
+    padding:10px 20px;
+    background-color:#1f1f1f;
+    height:134px;
+    width:290px;
+    border-radius:10px;
+}
+
+.play1 > p {
+    font-weight:700;
+    font-size:16px;
+
+}
+
+.play1 p:nth-of-type(2) { 
+    font-size:13px;
+    font-weight:500;
+}
+
+.badge {
+    height:32px;
+    border-radius:18px;
+    width:fit-content;
+    width:142px;
+    background-color:white;
+    font-weight:799;
+    border:none;
+}
+
+.play2 > p {
+    font-weight:700;
+    font-size:16px;
+
+}
+
+.play2 p:nth-of-type(2) {
+    font-size:13px;
+    font-weight:500;
+}
+
+/* Nav Bar */
+
+.spotify {
+    width:72px;
+    height:72px;
+    display:flex;
+    align-content:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-size:33px;
+
+}
+
+.box-1 {
+    display:flex;
+    justify-content:left;
+    width:780px;
+    height:48px;
+    padding-top:10px;
+    gap:10px;
+}
+
+.home {
+    width:40px;
+    height:48px;
+    font-size:25px;
+    border-radius:50%;
+    background-color:#1f1f1f;
+    align-content:center;
+    justify-self:center;
+    padding-left:10px;
+}
+
+.input_box {
+    display:flex;
+    align-items:center;
+    width:450px;
+    height:45px;
+    background-color:#1f1f1f;
+    border-radius:25px;
+}
+
+.input_box > input {
+    background:transparent;
+    border:none;
+    margin:10px 10px;
+    color:white;
+    width:100%;
+    outline:none;
+    font-size:17px;
+}
+
+.input_box > button {
+    background:transparent;
+    border:none;
+    color:white;
+    font-size:22px;
+    opacity:0.5;
+}
+
+.input_box:hover {
+    border:2px solid white;
+    background-color:#2a2a2a;
+}
+
+.box-2 {
+    display:flex;
+    justify-content:space-evenly;
+    align-content:center;
+    width:480px;
+    flex-wrap:wrap;
+    padding-top:20px;
+}
+
+.notification {
+    display:flex;
+    align-self:center;
+    justify-content:space-between;
+    width:60px;
+}
+
+#install_button {
+    background-color:#050505;
+    color:white;
+    opacity:0.7;
+}
+
+#install_button i {
+    padding-right:10px;
+}
+
+#install_button:hover {
+    opacity:1;
+}
+
+@media(min-width:1286px){
+    .nav {
+        width:100%
+    }
+
+    .spotify {
+        padding-left:30px;
+    }
+    
+    .box-1{
+        margin-left:500px;
+    }
+
+    .box-2 {
+        width:480px;
+        justify-content:space-evenly;
+        padding-right:20px;
+    }
+
+    .sidebar {
+        width:400px;
+    }
+
+    .playlist, .podcast {
+        width:340px;
+    }
+
+    .content {
+        left:410px;
+    }
+}
+
+.card-container {
+    display:flex;
+    flex-wrap:wrap;
+}
+.card {
+    width:150px;
+    background-color:#232323;
+    border-radius:10px;
+    padding:20px;
+    margin:10px;
+}
+
+.card-img {
+    width:100%;
+    border-radius:10px;
+}
+
+.card-title {
+    font-weight:700;
+}
+
+.card-info {
+    font-size:12px;
+    opacity:0.8;
+}
+
+.footer {
+    display:flex;
+    height:550px;
+    width:100%;
+    justify-content:center;
+    align-content:center;
+    flex-wrap:wrap;
+}
+
+.line {
+    height:10px;
+    width:100%;
+    border-top:1px solid white;
+    opacity:0.5
+}
+
+.song {
+    display:flex;
+    width:25%;
+    padding-left:10px;
+}
+
+.song-cover {
+    height:56px;
+    width:56px;
+    justify-self:left;
+    align-self:center;
+    border-radius:5px;
+}
+
+.song-detail {
+    margin-left:15px;
+}
+
+.song-name {
+    font-weight: 525;
+    font-size: 13.5px;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.singer {
+    font-weight: 250;
+    font-size: 11.5px;
+    margin-bottom: 10px;
+}
+
+.play-area {
+    /* display:flex; */
+    width:50%;
+}
+
+.song-controls {
+    display:flex;
+    height:32px;
+    justify-content:center;
+    align-items:center;
+    /* opacity:0.75; */
+}
+    
+.control-icons {
+    margin-left:30px;
+    height:16px;
+    opacity:0.74;
+}
+
+.control-icons:hover {
+    opacity:1;
+}
+
+.down-box {
+    display:flex;
+    justify-content:center;
+    align-items:bottom;
+    padding:11px;
+    margin-left: 40px;
+}
+
+.progress-bar{
+    width:65%;
+    height:3px;
+    padding:8px;
+    margin:0px 10px;
+    accent-color:green;
+}
+
+.controls {
+    display:flex;
+    width:25%;
+    align-items:center;
+    justify-content:center;
+}
+
+.controls > input {
+    width: 100px;
+    height: 5px;
+    margin: 10px 0px 0px 10px;
+    accent-color:green
+}
+
+.last-icons {
+    outline:none;
+    background-color:#141414;
+    border:none;
+    height:10px;
+    width:15px;
+    color:white;
+    margin:10px;
+}
+
+.last-icons > i {
+    font-size: 16px;
+    color:white;
+    opacity:0.75;
+}
+.last-icons > i:hover {
+    font-size: 16px;
+    color:white;
+    opacity:1
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+</head>
+<body>
+    <form action="/action">
+        <div>
+            <label for = "name">Name - </label>
+            <input type="text" id = "name" placeholder = "enter name" name = "username">
+        </div>
+       <div>
+        <label for="contact">Contact no. - </label>
+        <input type="number" id = "contact" placeholder = "Enter phone no." name = "contact no.">
+       </div>
+       <div>
+        <label for="date">Date - </label>
+        <input type="date" id="date">
+       </div>
+        <div>
+            <label for="pass">Password - </label>
+            <input type="password" id="pass" placeholder = "Enter Password">
+        </div>
+        <div>
+            <label for="color">Color - </label>
+            <input type="color" id="color" placeholder = "choose color">
+        </div>
+        <div>
+            <label for="time">Time - </label>
+            <input type="time" id="time" placeholder = "Select time">
+        </div>
+       <button type = "reset">reset</button>
+       <button type = "submit">submit</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <form action="https://www.google.com/search">
+        <label for="search">Google </label>
+        <input type="text" name = q placeholder = "search google or type a url" id = "search">
+        <button type = "submit">search</button>
+        <input type="checkbox" name="agree" id="cheakbox">
+        <label for="cheakbox">I agree to all terms and conditions</label>
+    </form>
+    <hr>
+    <div>
+        <form action="/action">
+            <label for="apple">Apple</label>
+            <input type="radio" name="fruits" id="apple" value = "apple">
+            <label for="banana">Banana</label>
+            <input type="radio" name="fruits" id="banana" value = "banana">
+            <label for="coconut">Coconut</label>
+            <input type="radio" name="fruits" id="coconut" value = "coconut">
+            <div>
+                Select your proffesion -
+                <select name="prof" id="prof">
+                    <option >choose your option</option>
+                    <option value="dev">Developer</option>
+                    <option value="stud">student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
+            <div>
+                <label for="vol">Select volume</label>
+                <input type="range" name="vol" id="vol" min = "0" max = "100" steps = "5">
+            </div>
+            <div>
+                <label for="id">give your feedback</label>
+                <textarea name="feedback" id="fb" rows = "10" columns = "100"></textarea>
+            </div>
+
+            <button type="submit">eat</button>
+        </form>
+    </div>
+    <hr>
+    <h1><u>Practice question 9</u></h1>
+    <form action="/action">
+        <h2>Registration Form</h2>
+        <input type="text" name="fname" id="name" placeholder = "First name">
+        <input type="text" name="lname" id="name" placeholder = "Last name">
+        <div>
+            <label for="gen">Select your gender</label>
+            <select name="gender" id="gen">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            <label for="terms">Do you agree to all the terms and service? </label>
+            <input type="checkbox" name="terms" id="terms">
+            yes, I agree.
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

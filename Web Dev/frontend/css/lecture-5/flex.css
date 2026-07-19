@@ -1,0 +1,80 @@
+#main {
+    border:2px solid black;
+    height:400px;
+    width:900px;
+    margin: 10px auto;
+    display:flex;
+
+    /* flex-direction:column */
+    /* flex-direction:column-reverse */
+    flex-direction: row;  /*(default)*/
+    /* flex-direction:row-reverse */
+
+    /* justify-content:flex-start; */
+    /* justify-content:flex-end; */
+    /* justify-content:space-between; */
+    /* justify-content:space-around; */
+    /* justify-content:space-evenly;  */
+
+    /* flex-wrap: nowrap; default */
+    /* flex-wrap:wrap; */
+    /* flex-wrap:wrap-reverse; */
+}
+
+div{
+    height:400px;
+    width:200px;
+}
+
+#main2 {
+    border:2px solid black;
+    height:400px;
+    width:900px;
+    margin: 10px auto;
+    display:flex;
+    flex-wrap:wrap;
+
+    /* align-content:flex-end; */
+    /* align-content:baseline; */
+    /* align-content:flex-start; */
+    /*align-content:center;*/        /*work similarly as justify contant but in cross axis*/
+    /* align-content:space-between; */
+    /* align-content:space-around; */
+    /* align-content:space-evenly; */
+
+    /* align-items: flex-end; */
+    /* align-items:baseline; */
+    /* align-items:center; */
+}
+
+.second {
+    height:100px;
+    width:150px;
+    color:white;
+}
+
+#orange,#indigo {
+    align-self:flex-end;
+}
+
+#main3 {
+     border:2px solid black;
+    height:400px;
+    width:1000px;
+    margin: 10px auto;
+    display:flex;
+}
+
+.third {
+    height:100px;
+    width:50px;
+    color:white;
+}
+
+#orange1 {
+    flex-basis:300px;
+}
+
+#indigo1 {
+    flex-grow:1;   /* try to change the size of the web*/
+}

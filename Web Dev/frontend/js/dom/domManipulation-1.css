@@ -1,0 +1,15 @@
+#btn{
+    background-color:blue;
+    color:white;
+}
+
+.outer{
+    width:400px;
+    height:200px;
+    background-color:black
+}
+.inner{
+    width:200px;
+    height:100px;
+    background-color:blueviolet
+}

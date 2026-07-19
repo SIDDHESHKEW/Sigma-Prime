@@ -1,0 +1,23 @@
+{
+  "name": "initializing_project",
+  "version": "1.0.0",
+  "description": "initializing a node project first time",
+  "homepage": "https://github.com/SIDDHESHKEW/practice#readme",
+  "bugs": {
+    "url": "https://github.com/SIDDHESHKEW/practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SIDDHESHKEW/practice.git"
+  },
+  "license": "ISC",
+  "author": "siddhesh kewate",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "figlet": "^1.10.0"
+  }
+}

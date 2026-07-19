@@ -1,0 +1,14 @@
+<%- include("include/head.ejs");  %>
+<body>
+    <h1>Rolled Dice - <%= diceRoll %></h1>
+
+    <%# Modifing for new try %>
+
+    <% if(diceRoll == 6){ %>
+        <h2>Nice! Roll dice again</h2>
+    <% } %>
+
+    <%- include("include/footer.ejs");  %>
+</body>
+</html>
+

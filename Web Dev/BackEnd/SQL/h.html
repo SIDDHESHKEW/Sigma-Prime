@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Battle Club - AI Session</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide-content {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #60a5fa;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #93c5fd;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #dbeafe;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        li {
+            font-size: 1.6rem;
+            color: #e2e8f0;
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-size: 1.8rem;
+        }
+
+        .highlight {
+            color: #60a5fa;
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-top: 30px;
+            display: block;
+            font-style: italic;
+        }
+
+        .quote {
+            font-size: 2.5rem;
+            color: #93c5fd;
+            font-style: italic;
+            text-align: center;
+            padding: 40px;
+            border-left: 5px solid #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: 10px;
+        }
+
+        .formula {
+            background: rgba(96, 165, 250, 0.15);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #60a5fa;
+            margin: 30px 0;
+        }
+
+        .formula-text {
+            font-size: 1.8rem;
+            color: #dbeafe;
+            margin-bottom: 20px;
+        }
+
+        .example {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        button {
+            background: #60a5fa;
+            color: #0a0e27;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background: #334155;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            color: #64748b;
+            font-size: 1.2rem;
+            z-index: 1000;
+        }
+
+        .title-slide {
+            text-align: center;
+        }
+
+        .title-slide h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #94a3b8;
+            margin-bottom: 50px;
+        }
+
+        .meta {
+            font-size: 1.4rem;
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        .accent-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            padding: 25px 30px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .code-block {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            color: #94a3b8;
+            overflow-x: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide.active .slide-content {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <div class="slide-content title-slide">
+                <h1>Binary Battle Club</h1>
+                <p class="subtitle">First Session: Building Ahead in the AI World</p>
+                <p class="meta">28 March</p>
+                <p class="meta">Siddhesh</p>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Opening Thought</h2>
+                <div class="quote">
+                    "AI is not the future. It's already changing the present."
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Ground Rules</h2>
+                <ul>
+                    <li>Everyone here is a beginner</li>
+                    <li>No one is ahead, no one is behind</li>
+                    <li>We grow together</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Why This Club?</h2>
+                <ul>
+                    <li>AI is growing fast</li>
+                    <li>Opportunities are increasing</li>
+                    <li>Skills matter more than degrees</li>
+                </ul>
+                <span class="highlight">"We don't want to stay average"</span>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Our Mission</h2>
+                <ul>
+                    <li>Learn latest AI tools (1–2 months)</li>
+                    <li>Stay updated weekly</li>
+                    <li>Focus on practical usage</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Bigger Vision</h2>
+                <ul>
+                    <li>Help every department in college</li>
+                    <li>Show real AI use cases</li>
+                    <li>Make work faster & smarter</li>
+                </ul>
+                <span class="highlight">"Not normal... overpowered"</span>
+            </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Today's Plan</h2>
+                <ul>
+                    <li>Explore AI tools</li>
+                    <li>Brainstorm ideas</li>
+                    <li>Create structured list</li>
+                    <li>Assign responsibilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Brainstorming Domains</h2>
+                <ul>
+                    <li>AI for Coding</li>
+                    <li>AI for Content</li>
+                    <li>AI for Design</li>
+                    <li>AI for Productivity</li>
+                    <li>AI for Students</li>
+                    <li>AI for Video</li>
+                    <li>AI for Business</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Task Instructions</h2>
+                <p>For each tool:</p>
+                <ul>
+                    <li>What it does</li>
+                    <li>Who can use it</li>
+                    <li>How you can use it</li>
+                </ul>
+                <span class="highlight">"Don't stay surface-level"</span>
+            </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Prompt Engineering</h2>
+                <div class="formula">
+                    <p class="formula-text">Formula: Role + Task + Context + Output</p>
+                    <p class="example">Example: "Act as a teacher... explain AI in simple terms with examples"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Your Responsibility</h2>
+                <ul>
+                    <li>Pick one tool</li>
+                    <li>Learn it deeply</li>
+                    <li>Present next Saturday</li>
+                </ul>
+                <span class="highlight">"You don't just learn... you teach"</span>
+            </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Surprise - GitHub Student Developer Pack</h2>
+                <div class="accent-box">
+                    <p style="margin-bottom: 20px;">github > setting > billing and licensing > educational benefits</p>
+                    <p>To start 2-factor authentication:</p>
+                    <div class="code-block">https://github.com/settings/security</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Closing</h2>
+                <div class="quote">
+                    "Most people will attend... Few will execute."
+                </div>
+                <span class="highlight" style="text-align: center; display: block; margin-top: 50px; font-size: 2.2rem;">
+                    "Be the one who executes"
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current">1</span> / <span id="total">13</span>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current').textContent = currentSlide + 1;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

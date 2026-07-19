@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap basics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="one.css">
+</head>
+<body>
+
+    <!-- navbar -->
+
+    <nav class="navbar sticky-top bg-primary navbar-expand-lg " data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- card -->
+
+<div class="card" style= "width:18rem;" >
+    <img class="card-image-top" src="Man.jpg" alt="man">
+    <div class="card-body">
+      <h5 class="card-title">Ram</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+    <a href="#" class="btn btn-primary">know more </a>
+    </div>
+
+</div>
+
+<!-- contant -->
+
+    <div class="container">
+        <h2>Container</h2>
+        <ul>
+            <li>to include bootstrap first add cdn css link</li>
+            <li>create a css file and link after that</li>
+            <li>copy cdn java script link at the end of body</li>
+        </ul>
+        <p>here i am practicing container layout from bootstrap</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eveniet corporis quo culpa officiis ea aliquam
+            ipsum amet optio nobis aperiam earum illum praesentium debitis, laborum at neque veniam. Tenetur.
+            Dolores, libero consequatur. Facere tempora repellat maiores nam incidunt doloremque possimus voluptatem, quam natus
+            fugit officia sint facilis alias rem? Eum magni in at, quidem excepturi similique quibusdam quasi explicabo?</p>
+    </div>
+
+    <!-- buttons -->
+
+    <button type="button" class="btn btn-danger">click me</button>
+    <div type= "button "class="btn btn-success">i am here</div>
+    <div class="btn btn-outline-secondary">outline</div>
+
+    <br> <br>
+
+    <div class="d-grid gap-2">
+  <button class="btn btn-primary" type="button">Button</button>
+</div>
+
+<br> <br>
+
+<button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+
+<!-- aleart message -->
+
+<div class="alert alert-primary d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  <div>
+    An example alert with an icon
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- group buttons -->
+
+<h3>button groups</h3>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-danger">Left</button>
+  <button type="button" class="btn btn-warning">Middle</button>
+  <button type="button" class="btn btn-success">Right</button>
+</div>
+
+<!-- linked js -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+</html>

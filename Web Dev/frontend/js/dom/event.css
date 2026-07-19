@@ -1,0 +1,29 @@
+.up{
+    display:grid;
+    justify-content:center;
+    height:200px;
+    width:100%
+}
+button{
+    justify-self:center;
+    align-self:end
+}
+
+.color{
+    display:flex;
+    justify-content:center;
+    margin-left: 150px;
+    height:100px;
+    width:80%;
+    border:2px solid black
+}
+#para {
+  border:1px solid black;
+  color:rgb(212, 0, 0);
+  background:black;
+}
+.outer{
+    width:400px;
+    height:200px;
+    background-color:black
+}
