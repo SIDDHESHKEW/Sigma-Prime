@@ -1,1 +1,4 @@
 created sample2 by w+ mode.
+It was a practice.
+the languge used is python
+we will learn more.
